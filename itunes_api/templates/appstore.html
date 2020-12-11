@@ -1,0 +1,43 @@
+<body>
+    <h1>{{title}}</h1>
+    <p>{{message}}</p>
+    <div>
+        <form method="post" action="/appstore">
+            <input type="text" name="field">
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <table>
+                {% for item in json_object %}
+                    <tr>
+                        <td>
+                                <div style="border:1px solid;height:110px;width:350px">
+                                    <div>
+                                        <a href=" {{item.trackViewUrl}} ">
+                                        <img src="{{item.artworkUrl100}} " style="float: left; margin: 10px; width: 25%; max-width: 120px; border-top-left-radius: 10%; border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-bottom-left-radius: 10%;">
+                                        </a> 
+                                    </div>
+                                    <div>
+                                        <div style="font-size:85%;margin:10px;"> {{item.trackName}}</div>
+                                        <div style="font-size:70%;">開発元：{{item.artistName}}</div>
+                                        <div style="font-size:70%;">評価平均点：{{item.averageUserRating}}</div>
+                                    </div>
+                               </div>
+                        </td>
+                        <td>
+                            <textarea style="width: 400px; height: 100px;">
+<div style="border:1px solid;height:110px;width:350px">
+<div><a href=" {{item.trackViewUrl}} "><img src="{{item.artworkUrl100}} " style="float: left; margin: 10px; width: 25%; max-width: 120px; border-top-left-radius: 10%; border-top-right-radius: 10%; border-bottom-right-radius: 10%; border-bottom-left-radius: 10%;"></a> </div>
+<div><div style="font-size:85%;margin:10px;"> {{item.trackName}}</div>
+<div style="font-size:70%;">開発元：{{item.artistName}}</div>
+<div style="font-size:70%;">評価平均点：{{item.averageUserRating}}</div>
+</div>
+</div>   
+                            </textarea>
+                        </td>
+                    </tr>
+                {% endfor %}
+        </table>
+     </div>
+</body>
